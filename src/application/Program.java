@@ -33,11 +33,16 @@ public class Program {
 		for(Seller obj : list) {
 			System.out.println(obj);
 		}
-		System.out.println("==== TESTE 3 : seller insert ====");
+		System.out.println("==== TESTE 4 : seller insert ====");
 		Seller newSeller = new Seller (null, "Greg", "greg@gmail.com", new Date(),4000.0, department);
 		sellerDao.insert(newSeller);
 		System.out.println("Inserted! New id = " + newSeller.getId());
 		
+		System.out.println("==== TESTE 5 : seller update ====");
+		seller =  sellerDao.findById(1);//procurar o vendendor de id tal, e carregar os dados no objeto seller
+		seller.setName("Marthar Wayne");//setar um novo nome
+		sellerDao.update(seller);//salvar atualizando os dados
+		System.out.println("Update completed");//
 	}
 
 }
